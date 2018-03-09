@@ -1,0 +1,139 @@
+# This file defines the contenttypes on the website. See the documentation for
+# details: https://docs.bolt.cm/contenttypes/intro
+
+# Pages can be used for the more 'static' pages on your site. Things like
+# 'about us', 'contact' or a 'disclaimer'. This content-type has a 'templateselect'
+# field, which allows you to override the record_template setting for an
+# individual page.
+# The taxonomy for this ContentType is defined as 'groups', which is a so-called
+# "grouping taxonomy". This way you can easily group sets of pages that logically
+# belong together. If your site has a 'services' section, in which you'd like to
+# list the different types of services a company provides, you can group these
+# together.
+
+pages:
+    name: Pages
+    singular_name: Page
+    fields:
+        title:
+            type: text
+            class: large
+            group: content
+        slug:
+            type: slug
+            uses: title
+        image:
+            type: image
+        teaser:
+            type: html
+            height: 150px
+        body:
+            type: html
+            height: 300px
+        template:
+            type: templateselect
+            filter: '*.twig'
+        seo:
+            type: seo
+            group: "SEO settings"
+    taxonomy: [ groups ]
+    recordsperpage: 100
+
+formations:
+    name: Formations
+    singular_name: Formation
+    fields:
+        titre: 
+            type: text
+        soustitre:
+            type: text
+        slug:
+            type: slug
+            uses: titre
+        imageheader:
+            type: image
+        intro:
+            type: html
+            height: 150px
+        contenu:
+            type: html
+            height: 400px
+        time:
+            type: text
+        tarif:
+            type: text
+        prerequis:
+            type: text 
+        objectif:
+            type: text
+        imagecentrale:
+            type: image
+        imageleft:
+            type: image
+        infoleft:
+            type: text
+        imagemiddle:
+            type: image
+        infomiddle:
+            type: text
+        imageright:
+            type: image
+        inforight:
+            type: text             
+        seo:
+            type: seo
+            group: "SEO settings"    
+    record_template: formation.twig        
+
+formateurs:
+    name: Formateurs
+    singular_name: Formateur
+    fields:
+        name: 
+            type: text        
+        image:
+            type: image
+        competence:
+            type: text                
+
+actualites:
+    name: Actualites
+    singular_name: Actualite
+    fields:
+        title:
+            type: text
+        intro: 
+            type: text            
+        body:
+            type: html
+            height: 450px
+
+formations_a_venir:
+    name: formations_a_venir
+    singular_name: formation_a_venir
+    fields:
+        title:
+            type: text                
+        contenu:
+            type: html
+            height: 450px
+
+faqs_formation:
+    name: Faqs_formation
+    singular_name: Faq_formation
+    fields:
+        question:
+            type: text
+        body:
+            type: html
+            height: 450px            
+
+faqs:
+    name: Faqs
+    singular_name: Faq
+    fields:
+        question:
+            type: text
+        body:
+            type: html
+            height: 450px 

@@ -1,0 +1,55 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+    <section class="inner-intro bg-img8 light-color overlay-dark parallax parallax-background2">
+        <div class="container">
+            <div class="row title">
+                <h1 class="h2">Faq</h1> 
+            </div>
+        </div>
+    </section>
+    <div class="clearfix"></div>
+    <section class="ptb ptb-sm-80">
+        <div class="container">
+            <div class="row text-center">
+                <h3>À propos des formations</h3> </div>
+            <div class="spacer-60"></div>
+            <div class="row">
+                <div class="col-xs-12 mt-30">                        
+                    <div class="accordion">
+                        {% setcontent faqs_formation = 'faqs_formation' %}
+                        {% for faq_formation in faqs_formation %}                            
+                            <div class="accordion-section">
+                                <h6 class="accordion-title lead">{{ faq_formation.question }}</h6>
+                                <div class="accordion-content">
+                                    <p>{{ faq_formation.body }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}                             
+                    </div>
+                </div>
+            </div>
+    </section>
+    <section class="ptb ptb-sm-80">
+        <div class="container">
+            <div class="row text-center">
+                <h3>Questions / Réponses</h3> </div>
+            <div class="spacer-60"></div>
+            <div class="row">
+                <div class="col-xs-12 mt-30">
+                    <div class="accordion">
+                        {% setcontent faqs = 'faqs' %}
+                        {% for faq in faqs %}                            
+                            <div class="accordion-section">
+                                <h6 class="accordion-title lead">{{ faq.question }}</h6>
+                                <div class="accordion-content">
+                                    <p>{{ faq.body }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock main %}
