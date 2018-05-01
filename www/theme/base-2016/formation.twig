@@ -1,0 +1,103 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+{% setcontent formations = 'formations' %}
+<section class="inner-intro bg-data light-color overlay-dark" data-bg="/files/{{ formation.imageheader }}">
+    <div class="container">
+        <div class="row title">
+            <h1 class="h2 ptb-60">{{ formation.titre }}</h1>
+            <p class="lead col-md-6 col-md-offset-3 white">{{ formation.soustitre }}</p>
+        </div>
+    </div>
+</section>
+        <div class="clearfix"></div>
+        <section class="pt pt-sm-80">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="lead">{{ formation.intro }}</div>
+                    </div>
+                </div>
+                <div class="spacer-90"></div>
+                <div class="row mb-60 mb-xs-30">                    
+                    <style>.formation-content h4 { color: #A93A8A !important; }</style>
+                    <div class="col-md-8 col-md-offset-2 formation-content">
+                        {{ formation.contenu }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-2 mb-30">
+                        <div><strong class="dark-color">Durée:</strong></div>
+                        <div class="project-detail-block">                            
+                            <p>{{ formation.time }}</p>
+                        </div>
+                    </div>
+                    {% if formation.prerequis %}
+                    <div class="col-md-4 mb-30">
+                        <div><strong class="dark-color">Pré-requis :</strong></div>
+                        <div class="project-detail-block">                            
+                            <p> {{ formation.prerequis }} </p>                            
+                        </div>
+                    </div>            
+                    {% endif %}
+                    <div class="col-md-4 {% if formation.prerequis %}col-md-offset-2 {% endif %} mb-30">
+                         <div><strong class="dark-color">Tarif :</strong></div> 
+                        <div class="project-detail-block">                            
+                            <p>{{ formation.tarif }} </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2"> {{ formation.imagecentrale|showimage()}} </div>
+                </div>
+                <div class="row text-center mtb-80">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h5 class="color">Objectif</h5>
+                        <p class="lead">{{ formation.ojectif }}</p>
+                    </div>
+                </div>
+                <div class="row mtb-60 mtb-xs-30">
+                    {% if formation.imageright and formation.inforight %}
+                        <div class="col-md-4 mb-30 text-center">  
+                    {% elseif formation.imageright  %}
+                        <div class="col-md-4 mb-30 text-center">  
+                    {% else %}
+                        <div class="col-md-4 col-md-offset-2 mb-30 text-center">  
+                    {% endif %}
+                        {% if formation.imageleft %}                       
+                            <img class="img-circle hv" src="{{ thumbnail(formation.imageleft, 150, 150)}}">
+                        {% endif %}
+                        {% if formation.infoleft %}                       
+                            <p class="lead text-center mtb-15">{{ formation.infoleft }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-4 mb-30 text-center">                         
+                        {% if formation.imagemiddle %}                       
+                            <img class="img-circle hv" src="{{ thumbnail(formation.imagemiddle, 150, 150)}}">
+                        {% endif %}
+                        {% if formation.infomiddle %}                       
+                            <p class="lead text-center mtb-15">{{ formation.infomiddle }}</p>
+                        {% endif %}
+                    </div>
+                    
+                    
+                    
+                    <div class="col-md-4 mb-30 text-center">                         
+                        {% if formation.imageright %}                       
+                            <img class="img-circle hv" src="{{ thumbnail(formation.imageright, 150, 150)}}">
+                        {% endif %}
+                        {% if formation.inforight %}                       
+                            <p class="lead text-center mtb-15">{{ formation.inforight }}</p>
+                        {% endif %}
+                    </div>                    
+                </div>
+            </div>
+        </section>
+        <section class="ptb ptb-sm-80"> <div class="container"> <div class="row wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;"> <div class="col-md-8 col-md-offset-2 text-center"> <h3 class="">Nous sommes là pour vous aider à monter votre dossier</h3> <p class="mt-15">Pensez à vous faire financer, c’est votre droit! <a class="btn-link-a">Consultez nous pour les diffèrentes possibilités de prise en charge.</a> Peu importe votre profession initiale, n’hésitez pas à nous contacter si vous êtes intéressé par cette formation.</p> <br> <a class="btn btn-lg btn-color-line" href="https://sublima-lille.com/contact">Nous contacter</a> </div> </div> </div> </section>
+        <script>
+        $('.bg-data').each(function (index) {
+            var slide = $(this);
+            slide.css('background-image', 'url(' + slide.data('bg') + ')');
+        });
+        </script>
+{% endblock main %}

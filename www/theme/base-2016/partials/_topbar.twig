@@ -1,0 +1,25 @@
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <a href="/"> <img class="l-black" src="../theme/base-2016/images/logo_sublima-2ff19fc2.png" alt="Logo de Sublima, Centre de formation esthétique" /> <img class="l-color" src="../theme/base-2016/images/logo_sublima-2ff19fc2.png" alt="Logo de Sublima, Centre de formation esthétique" /> </a>
+        </div>
+        <nav class="navigation">
+            <ul>            
+             {% setcontent formations = 'formations' orderby 'position' %}
+             <li><a href="/">Accueil</a></li>     
+             <li class="nav-has-sub">
+                <a href="/formations">Formation</a>
+                <ul class="nav-dropdown">
+                    {% for formation in formations %}                
+                        <li><a href="/formation/{{ formation.slug }}">{{ formation.titre }}</a></li>
+                    {% endfor %}   
+                </ul>
+            </li>
+            <li><a href="/faq">À propos</a></li>     
+            <li><a href="/esthetique">Institut</a></li>                 
+            <li><a href="/contact">Contact</a></li>                
+            <li><a href="/devenez-modele">Devenez modèle</a></li>                
+            </ul>
+        </nav>
+    </div>
+</header>

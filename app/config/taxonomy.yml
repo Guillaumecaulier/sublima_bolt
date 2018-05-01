@@ -24,3 +24,11 @@ categories:
     behaves_like: categories
     multiple: true
     options: [ news, events, movies, music, books, life, love, fun ]
+
+
+formations:
+    slug: formations
+    singular_slug: formation
+    behaves_like: grouping
+    options: { main: "Les Formations" }
+    has_sortorder: true

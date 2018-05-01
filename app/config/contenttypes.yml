@@ -45,6 +45,8 @@ formations:
     fields:
         titre: 
             type: text
+        position: 
+            type: integer
         soustitre:
             type: text
         slug:
